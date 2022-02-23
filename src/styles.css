@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family:Technology ;
+    src:local("Technology") ,url(./assets/Technology-Bold.ttf) formate("truetype");
+}
