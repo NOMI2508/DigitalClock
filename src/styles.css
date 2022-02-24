@@ -3,3 +3,6 @@
     font-family:Technology ;
     src:local("Technology") ,url(./assets/Technology-Bold.ttf) formate("truetype");
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

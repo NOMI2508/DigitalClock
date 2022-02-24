@@ -1,14 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap");
+
 :host {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: aquamarine;
+  background-color: rgb(2, 15, 32);
 }
 
 .digitalClock {
   position: relative;
+  margin-top: 30%;
   width: 500px;
   height: 160px;
   display: flex;
@@ -23,28 +26,59 @@
   text-transform: uppercase;
 }
 
-.dayTitle{
-    font-size:20px;
-    margin-bottom:20px;
+.dayTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-#digitalTime{
-    display: flex;
-    font-family: Technology;
-    font-size: 60px;
-    font-weight: bold;
-    margin-bottom:10px;
+#digitalTime {
+  display: flex;
+  font-family: Technology;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-.date{
- display: flex;
- margin-top:15px;
+.date {
+  display: flex;
+  margin-top: 15px;
 }
-.time{
-    margin-top:10px;
-    font-size:12px;
-}
-
-#toggle{
-   
+.time {
+  margin-top: 10px;
+  font-size: 12px;
 }
 
+#toggle {
+  margin-top: 50px;
+  padding: 3px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.formate {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-left: 20%;
+  font-family: "orbitron";
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-family: "orbitron";
+  margin-left: 10px;
+  background-color: black;
+  color: aquamarine;
+}
+
+button:hover {
+  color: blueviolet;
+}
+h2 {
+  font-family: "orbitron";
+  margin-left: 90px;
+  background-color: rgb(2, 15, 32);
+  color: aquamarine;
+}

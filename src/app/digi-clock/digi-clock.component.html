@@ -1,4 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalClock</title>
+</head>
+<body>
+
+<section>
 <div class="digitalClock">
+
   <div class="dayTitle">
     {{ day }}
   </div>
@@ -6,15 +18,26 @@
     <div>{{ hour }} :&nbsp;</div>
     <div>{{ minute }} :&nbsp;</div>
     <div>{{ second }} </div>
-    
+
   </div>
   <div class="date">
     <div>{{ Date }} /&nbsp;</div>
     <div>{{ month }} /&nbsp;</div>
     <div>{{ year }}</div>
+    <div>{{ampm }}</div>
   </div>
-  
+
 </div>
-<button id="toggle">Toggle</button>
+
+<div class="formate">
+  <h2>Format</h2>
+  <button onclick="commonTime()">12 Hours</button>
+  <button onclick="miltaryTime()">24 Hours</button>
+</div>
+</section>
+
+</body>
+</html>
+
 
 
