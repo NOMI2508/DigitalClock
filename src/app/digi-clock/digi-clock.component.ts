@@ -27,35 +27,32 @@ export class DigiClockComponent implements OnInit {
   public month: any;
   public year: any;
   time: any;
-  twentyValue: boolean = false
-  twelveValue:boolean = false
-  constructor() {}
+  twentyValue: boolean = false;
+  twelveValue: boolean = false;
+  timeV : boolean=false;
+  constructor() {
+    this.miltaryTime();
+  }
 
   ngOnInit(): void {
-
-
-    setInterval(() =>{
-
-      //this.miltaryTime();
-      if(this.twentyValue == true){
+    setInterval(() => {
+      if (this.twentyValue == true) {
         this.miltaryTime();
       }
-      if(this.twelveValue == true){
-        this.commonTime()
+      if (this.twelveValue == true) {
+        this.commonTime();
       }
-    }, 1000)
 
-
-
-
+    }, 1000);
 
     this.day = this.daysArray[this.date.getDay()];
+
     // getDay() returnsthe day in integer formate,from 0 to 6 then takes the corresponding number from the array
   }
 
   public commonTime() {
     this.twelveValue = true;
-    this.twentyValue = false
+    this.twentyValue = false;
     const date = new Date();
 
     const hours = date.getHours(); //get the hours from the Date
@@ -85,9 +82,10 @@ export class DigiClockComponent implements OnInit {
 
   public miltaryTime() {
     this.twentyValue = true;
-    this.twelveValue = false
+    this.twelveValue = false;
+    this.timeV=false;
     const date = new Date();
-    this. hour = date.getHours(); //get the hours from the Date
+    this.hour = date.getHours(); //get the hours from the Date
 
     //this.hour = this.hour < 10 ? '0' + hours : hours; // if the hour is single digit, then add 0 to the hour
 
@@ -109,6 +107,8 @@ export class DigiClockComponent implements OnInit {
 
     this.year = date.getFullYear();
   }
+
+
 }
 
-//document.getElementById('digitalTime').innerHTML =
+
