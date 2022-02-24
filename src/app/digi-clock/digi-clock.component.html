@@ -8,9 +8,8 @@
 </head>
 <body>
 
-<section>
+<section id="dashboard">
 <div class="digitalClock">
-
   <div class="dayTitle">
     {{ day }}
   </div>
@@ -18,21 +17,19 @@
     <div>{{ hour }} :&nbsp;</div>
     <div>{{ minute }} :&nbsp;</div>
     <div>{{ second }} </div>
-
+    <div class="ampm">{{ampm }}</div>
   </div>
   <div class="date">
     <div>{{ Date }} /&nbsp;</div>
     <div>{{ month }} /&nbsp;</div>
-    <div>{{ year }}</div>
-    <div>{{ampm }}</div>
+    <div>{{ year }}&nbsp;</div>
   </div>
-
 </div>
 
 <div class="formate">
   <h2>Format</h2>
-  <button onclick="commonTime()">12 Hours</button>
-  <button onclick="miltaryTime()">24 Hours</button>
+  <button (click)="commonTime()">12 Hours</button>
+  <button (click)="miltaryTime()">24 Hours</button>
 </div>
 </section>
 

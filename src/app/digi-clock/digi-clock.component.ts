@@ -26,52 +26,45 @@ export class DigiClockComponent implements OnInit {
   public Date: any;
   public month: any;
   public year: any;
-
+  time: any;
+  twentyValue: boolean = false
+  twelveValue:boolean = false
   constructor() {}
 
   ngOnInit(): void {
-    setInterval(() => {
-      const date = new Date();
-      this.miltaryTime(date);
-      this.commonTime(date);
-      //this.formateChange
-    }, 1000); // this will call the updateDate method in each second
+
+
+    setInterval(() =>{
+
+      //this.miltaryTime();
+      if(this.twentyValue == true){
+        this.miltaryTime();
+      }
+      if(this.twelveValue == true){
+        this.commonTime()
+      }
+    }, 1000)
+
+
+
+
 
     this.day = this.daysArray[this.date.getDay()];
     // getDay() returnsthe day in integer formate,from 0 to 6 then takes the corresponding number from the array
   }
 
-  private miltaryTime(date: Date) {
+  public commonTime() {
+    this.twelveValue = true;
+    this.twentyValue = false
+    const date = new Date();
+
     const hours = date.getHours(); //get the hours from the Date
+    this.ampm = hours >= 12 ? 'PM' : 'AM'; // ternry condition which check that time is greater than 12 then condition true hour becoome (PM)
+    this.hour = hours % 12;
 
-   
-    this.hour = this.hour < 10 ? '0' + hours : hours; // if the hour is single digit, then add 0 to the hour
-
-    const minutes = date.getMinutes(); //get the minutes from the Date
-    this.minute = minutes < 10 ? '0' + minutes : minutes.toString();
-
-    const second = date.getSeconds(); //get the seconds from the Date
-    this.second = second < 10 ? '0' + second : second.toString();
-
-    const days = date.getDate(); // get the month from the date
-
-    this.Date = days < 10 ? '0' + days : days.toString();
-
-    const month = date.getMonth() + 1; // get the month from the date
-    this.month = month < 10 ? '0' + month : month.toString();
-
-    this.year = date.getFullYear();
-  }
-
-
-  private commonTime(date: Date) {
-
-      const hours = date.getHours(); //get the hours from the Date
-
-
-      this.ampm = hours >= 12 ? 'PM' : 'AM'; // ternry condition which check that time is greater than 12 then condition true hour becoome (PM)
-      this.hour=this.hour> 12 ?hours%12:hours; // if time is greater than 12 then take modulus and remaing answe will be in 12 hour formate
-      this.hour = this.hour < 10 ? '0' + hours : hours; // if the hour is single digit, then add 0 to the hour
+    this.hour = this.hour ? this.hour : 12;
+    this.hour = this.hour < 10 ? '0' + this.hour : this.hour.toString();
+    // if the hour is single digit, then add 0 to the hour
 
     const minutes = date.getMinutes(); //get the minutes from the Date
     this.minute = minutes < 10 ? '0' + minutes : minutes.toString();
@@ -86,11 +79,36 @@ export class DigiClockComponent implements OnInit {
     const month = date.getMonth() + 1; // get the month from the date
     this.month = month < 10 ? '0' + month : month.toString();
 
+    this.time = hours + ' ' + minutes + ' ' + second;
     this.year = date.getFullYear();
   }
 
+  public miltaryTime() {
+    this.twentyValue = true;
+    this.twelveValue = false
+    const date = new Date();
+    this. hour = date.getHours(); //get the hours from the Date
 
+    //this.hour = this.hour < 10 ? '0' + hours : hours; // if the hour is single digit, then add 0 to the hour
+
+    // this.hour=this.hour> 12 ?hours%12:hours; // if time is greater than 12 then take modulus and remaing answe will be in 12 hour formate
+    //this.hour = this.hour < 10 ? '0' + hours : hours; // if the hour is single digit, then add 0 to the hour
+
+    this.minute = date.getMinutes(); //get the minutes from the Date
+    // this.minute = minutes < 10 ? '0' + minutes : minutes.toString();
+
+    const second = date.getSeconds(); //get the seconds from the Date
+    this.second = second < 10 ? '0' + second : second.toString();
+
+    this.Date = date.getDate(); // get the month from the date
+
+    //this.Date = days < 10 ? '0' + Date : Date.toString();
+
+    const month = date.getMonth() + 1; // get the month from the date
+    this.month = month < 10 ? '0' + month : month.toString();
+
+    this.year = date.getFullYear();
   }
+}
 
-  //document.getElementById('digitalTime').innerHTML =
-
+//document.getElementById('digitalTime').innerHTML =
